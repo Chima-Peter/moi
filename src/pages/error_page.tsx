@@ -3,7 +3,7 @@ import desktop from '../assets/images/error_page/desktop_404-error.webp'
 import tablet from '../assets/images/error_page/tablet_404-error.webp'
 import mobile from '../assets/images/error_page/mobile_404-error.webp'
 
-function ErrorPage() {
+const ErrorPage = () => {
    return (
       <div className='flex items-center justify-center bg-white w-full h-screen lg:h-auto md:h-auto'>
          <Link to={'/'}>

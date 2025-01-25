@@ -19,7 +19,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        "main": ['']
+        "main": ['"Secular One"', 'ui-sans-serif', 'system-ui'],
+        "sub": ['Roboto', 'ui-sans-serif', 'system-ui']
       }
     },
   },
