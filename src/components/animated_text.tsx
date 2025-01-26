@@ -15,7 +15,7 @@ const AnimatedText = ({ text, onComplete }: AnimatedTextProps) => {
   useEffect(() => {
     const controls = animate(count, text.length, {
       type: "tween",
-      duration: 2, // Adjust the duration for typing speed
+      duration: 1, // Adjust the duration for typing speed
       ease: "linear",
       onUpdate: (latest) => {
         if (Math.round(latest) === text.length && !animationCompleted) {
