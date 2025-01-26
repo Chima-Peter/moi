@@ -74,18 +74,18 @@ const UserEmail = ({ step, setStep }: UserEmailProps) => {
 
 
     return (
-        <section className="flex items-center p-4 md:p-12 shadow-lg flex-col gap-10 rounded-lg bg-white text-black  w-full max-w-2xl min-h-[400px]">
-            <p className="font-sub">
+        <section className="flex items-center p-4 md:p-12 shadow-lg flex-col rounded-lg bg-white text-black  w-full max-w-2xl min-h-[400px] self-center justify-items-center">
+            <p className="font-sub mb-6">
                 While we search, signup to keep in the loop on all things baby names!
             </p>
             <form onSubmit={handleSubmit} noValidate className="w-[100%] flex flex-col gap-4">
-                <div className="flex flex-col md:flex-row w-[100%] md:items-start justify-between gap-8 md:gap-0">
-                    <div className="w-[100%] md:w-[80%] flex flex-col md:flex-row justify-normal md:justify-between gap-3 md:gap-0">
-                        <label className="max-w-xs flex flex-col gap-2 font-sub font-[600] text-[14px]" htmlFor="first_name">
+                <div className="flex flex-col md:flex-row w-[100%] md:items-start justify-center gap-4">
+                    <div className="flex flex-col md:flex-row justify-normal gap-4">
+                        <label className="max-w-xs flex flex-col gap-2 font-sub font-[600] text-[14px] w-[215px]" htmlFor="first_name">
                             First Name
                             <input onChange={updateInputOnChange} onFocus={updateInputOnFocus} placeholder="Your first name" type="text" name="first_name" id="first_name" className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]" />
                         </label>
-                        <label className="max-w-xs flex flex-col gap-2 font-sub font-[600] text-[14px]" htmlFor="email">
+                        <label className="max-w-xs flex flex-col gap-2 font-sub font-[600] text-[14px]  w-[215px]" htmlFor="email">
                             Email
                             <input onChange={updateInputOnChange} onFocus={updateInputOnFocus} placeholder="Your last name" type="email" name="email" id="email" className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]" />
                         </label>
@@ -105,7 +105,7 @@ const UserEmail = ({ step, setStep }: UserEmailProps) => {
             </form>
             {
                 delay ? 
-                <button className="text-[16px] xl:text-[18px] outline-none self-center w-[100%] text-center text-blue-500" onClick={moveToNextStep}>
+                <button className="outline-none self-center w-[100%] text-center text-sky-500 font-medium" onClick={moveToNextStep}>
                     No thanks, show me your names! </button>
                     : 
                     <p className="text-blue-500">

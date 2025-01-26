@@ -19,14 +19,14 @@ const HomePage = () => {
 
 
   return (
-    <main className="bg-[rgb(239,159,188)] w-[100%] flex p-4 md:p-12 items-center font-main flex-col text-white min-h-[100vh] gap-4">
+    <main className="bg-[rgb(239,159,188)] w-[100%] flex p-4 md:p-12 items-center font-main flex-col text-white min-h-[100vh] gap-4 justify-center">
       <h1 tabIndex={0} className="text-4xl font-[500] text-white">
         Named by AI ✨
       </h1>
       {
         allComponents[step]
       }
-      <p className="capitalize font-sub font-semibold">
+      <p className="capitalize font-sub font-semibold pt-2">
         🐶 <Link to={'https://www.ainamedmypet.com/?utm_source=named-by-ai'} className="underline">AI named my pet</Link>
       </p>
     </main>

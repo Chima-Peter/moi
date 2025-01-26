@@ -27,7 +27,7 @@ const GeneratedNames = ({ setStep }: GeneratedNamesProps) => {
     }
     return (
         <section className="flex items-center p-4 md:p-12 shadow-lg flex-col gap-6 rounded-lg bg-white text-black w-full max-w-2xl min-h-[400px]">
-            <h1 className="text-[18px] text-black">
+            <h1 className="text-[18px] text-black self-start">
                 Behold! Enchanting baby names we've found just for you:
             </h1>
             <AnimatedList items={names} />
@@ -38,7 +38,7 @@ const GeneratedNames = ({ setStep }: GeneratedNamesProps) => {
                 </button>
                 <button onClick={backToForm}  className="w-fit px-[0.75rem] text-[0.875rem] h-[2rem] min-h-[2rem] bg-[rgb(239,159,188)] rounded-full justify-center text-white  flex gap-4  font-[600] items-center">
                     <FaRepeat className="w-4 h-4 text-white" />
-                    Start over
+                    Start Over
                 </button>
             </div>
             <p className="font-sub text-center">

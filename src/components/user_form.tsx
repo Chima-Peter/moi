@@ -46,12 +46,12 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
         <p tabIndex={0} className="text-center font-sub pb-6 border-b-[1.8px] border-b-gray-300">
           Unveil the ideal name for your baby with Named by AI, a clever name generator that uses artificial intelligence to find exceptional, meaningful names tailored to your preferences
         </p>
-        <form className="w-[100%] flex flex-col gap-12" noValidate onSubmit={handleSubmit}>
-          <div tabIndex={0}  className="flex flex-col gap-3 font-sub max-w-xs">
+        <form className="w-[100%] flex flex-col gap-[34px]" noValidate onSubmit={handleSubmit}>
+          <div tabIndex={0}  className="flex flex-col font-sub max-w-xs">
               <h2 className="text-lg font-main">
                 What is the baby's gender?
               </h2>
-            <div tabIndex={0} className="flex w-[100%] justify-between items-center cursor-pointer" onClick={() => {updateGender("BOY")}} >
+            <div tabIndex={0} className="flex w-[100%] py-[8px] justify-between items-center cursor-pointer" onClick={() => {updateGender("BOY")}} >
               <p className="text-[14px]">
                 Boy
               </p>
@@ -62,7 +62,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               }
             </div>
 
-            <div tabIndex={0} className="flex w-[100%] justify-between items-center cursor-pointer" onClick={() => {updateGender("GIRL")}} >
+            <div tabIndex={0} className="flex w-[100%] justify-between items-center cursor-pointer py-[8px]" onClick={() => {updateGender("GIRL")}} >
               <p className="text-[14px]">
                 Girl
               </p>
@@ -73,7 +73,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               }
             </div>
 
-            <div tabIndex={0} className="flex w-[100%] justify-between items-center cursor-pointer" onClick={() => {updateGender("UNKNOWN")}}>
+            <div tabIndex={0} className="flex w-[100%] justify-between items-center cursor-pointer  py-[8px]" onClick={() => {updateGender("UNKNOWN")}}>
               <p className="text-[14px]">
                 Unknown
               </p>
@@ -85,8 +85,8 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
             </div>
           </div>
 
-          <label htmlFor="name_origin" className="flex flex-col gap-2 w-[100%]" tabIndex={0}>
-            <h2 className="text-lg font-main">
+          <label htmlFor="name_origin" className="flex flex-col w-[100%]" tabIndex={0}>
+            <h2 className="text-lg font-main py-[0.5rem]">
               What is your preferred name origin?
             </h2>
             <div className="max-w-xs relative">
@@ -103,8 +103,8 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
             </div>
           </label>
 
-          <label htmlFor="meaning" className="flex flex-col gap-2 w-[100%]" tabIndex={0}>
-            <h2 className="text-lg font-main">
+          <label htmlFor="meaning" className="flex flex-col w-[100%]" tabIndex={0}>
+            <h2 className="text-lg font-main  py-[0.5rem]">
               Would you like the name to have a specific meaning or theme?
             </h2>
             <div className="relative max-w-xs">
@@ -121,11 +121,11 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
             </div>
           </label>
 
-          <div tabIndex={0}  className="flex flex-col gap-2 font-sub w-[100%]">
+          <div tabIndex={0}  className="flex flex-col font-sub w-[100%]">
               <h2 className="text-lg font-main">
                 Do you want a popular or unique name?
               </h2>
-            <div tabIndex={0} className="flex max-w-xs justify-between items-center cursor-pointer" onClick={() => {updateNameType("POPULAR")}} >
+            <div tabIndex={0} className="flex py-[8px] max-w-xs justify-between items-center cursor-pointer" onClick={() => {updateNameType("POPULAR")}} >
               <p className="text-[14px]">
                 Popular
               </p>
@@ -136,7 +136,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               }
             </div>
 
-            <div tabIndex={0} className="flex justify-between max-w-xs items-center cursor-pointer" onClick={() => {updateNameType("UNIQUE")}} >
+            <div tabIndex={0} className="flex justify-between max-w-xs items-center cursor-pointer  py-[8px]" onClick={() => {updateNameType("UNIQUE")}} >
               <p className="text-[14px]">
                 Unique
               </p>
@@ -147,7 +147,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               }
             </div>
 
-            <div tabIndex={0} className="flex max-w-xs justify-between sm:w-[330px] items-center cursor-pointer" onClick={() => {updateNameType("NO PREFERENCE")}}>
+            <div tabIndex={0} className="flex max-w-xs justify-between sm:w-[330px] items-center cursor-pointer py-[8px]" onClick={() => {updateNameType("NO PREFERENCE")}}>
               <p className="text-[14px]">
                 No preference
               </p>
@@ -159,18 +159,18 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
             </div>
           </div>
 
-          <label htmlFor="names_avoid" tabIndex={0}  className="flex flex-col gap-2 font-sub w-[100%]">
-            <h2 className="text-lg font-main">
+          <label htmlFor="names_avoid" tabIndex={0}  className="flex flex-col font-sub w-[100%]">
+            <h2 className="text-lg font-main py-[0.5rem]">
               Are there any names you would like to avoid due to personal reasons or associations?
             </h2>
             <input type="text" name="names_avoid" id="names_avoid" value={formData.names_avoid} onChange={updateInput} placeholder="e.g. Gary, Robyn, Sam" className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full max-w-xs border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]"  />
           </label>
 
-          <div tabIndex={0}  className="flex flex-col gap-2 font-sub w-[100%]">
+          <div tabIndex={0}  className="flex flex-col font-sub w-[100%]">
               <h2 className="text-lg font-main">
                 Would you like a name with a nickname or shortened version?
               </h2>
-            <div tabIndex={0} className="flex justify-between max-w-xs items-center cursor-pointer" onClick={() => {updateNameVersion("Yes")}} >
+            <div tabIndex={0} className="flex justify-between py-[8px] max-w-xs items-center cursor-pointer" onClick={() => {updateNameVersion("Yes")}} >
               <p className="text-[14px]">
                 Yes
               </p>
@@ -181,7 +181,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               }
             </div>
 
-            <div tabIndex={0} className="flex justify-between max-w-xs items-center cursor-pointer" onClick={() => {updateNameVersion("No")}} >
+            <div tabIndex={0} className="flex justify-between max-w-xs py-[8px] items-center cursor-pointer" onClick={() => {updateNameVersion("No")}} >
               <p className="text-[14px]">
                 No
               </p>
@@ -192,7 +192,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               }
             </div>
 
-            <div tabIndex={0} className="flex w-[100%] justify-between max-w-xs items-center cursor-pointer" onClick={() => {updateNameVersion("NO PREFERENCE")}}>
+            <div tabIndex={0} className="flex w-[100%] justify-between max-w-xs py-[8px] items-center cursor-pointer" onClick={() => {updateNameVersion("NO PREFERENCE")}}>
               <p className="text-[14px]">
                 No preference
               </p>
@@ -204,8 +204,8 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
             </div>
           </div>
 
-          <button type="submit" className="w-fit px-[1rem] bg-[rgb(239,159,188)] rounded-full self-center text-white font-[600] h-[3rem] min-h-[3rem]">
-            Generate names
+          <button type="submit" className="w-fit px-[1rem] bg-[rgb(239,159,188)] rounded-full self-center text-white font-[500] tracking-tight h-[3rem] min-h-[3rem] text-[14px]">
+            Generate Names
           </button>
         </form>
       </section>
