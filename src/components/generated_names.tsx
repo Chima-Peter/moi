@@ -1,7 +1,8 @@
-import { BsArrowRepeat } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import AnimatedList from "./animate_list";
 import { GoPlusCircle } from "react-icons/go";
+import { FaRepeat } from "react-icons/fa6";
+
 
 interface GeneratedNamesProps {
     setStep: React.Dispatch<React.SetStateAction<number>>;
@@ -25,22 +26,22 @@ const GeneratedNames = ({ setStep }: GeneratedNamesProps) => {
         setStep(0)
     }
     return (
-        <section className="flex items-center py-8 px-4 md:px-10 flex-col gap-6 rounded-lg bg-white text-black w-[90%] md:max-w-[42rem] min-h-[400px]">
-            <h1 className="text-[16px] xl:text-[18px] text-black">
+        <section className="flex items-center p-4 md:p-12 shadow-lg flex-col gap-6 rounded-lg bg-white text-black w-full max-w-2xl min-h-[400px]">
+            <h1 className="text-[18px] text-black">
                 Behold! Enchanting baby names we've found just for you:
             </h1>
             <AnimatedList items={names} />
-            <div className="flex gap-3 sm:gap-6 w-[100%] flex-col sm:flex-row justify-normal sm:justify-center">
-                <button  className="w-[100%] sm:w-fit px-5 py-3 bg-[rgb(239,159,188)] rounded-full justify-center text-white  flex gap-1 items-center">
-                    <GoPlusCircle className="w-5 h-5 text-white" />
+            <div className="flex gap-3 sm:gap-4 w-[100%] flex-col sm:flex-row justify-center items-center">
+                <button  className="w-fit px-[0.75rem] text-[0.875rem] h-[2rem] min-h-[2rem] bg-[rgb(239,159,188)] rounded-full justify-center text-white flex gap-4 items-center font-[600]">
+                    <GoPlusCircle className="w-4 h-4 text-white" />
                     Show me more
                 </button>
-                <button onClick={backToForm}  className="w-[100%] sm:w-fit px-5 py-3 bg-[rgb(239,159,188)] rounded-full justify-center text-white flex gap-1 items-center">
-                    <BsArrowRepeat className="w-5 h-5 text-white" />
+                <button onClick={backToForm}  className="w-fit px-[0.75rem] text-[0.875rem] h-[2rem] min-h-[2rem] bg-[rgb(239,159,188)] rounded-full justify-center text-white  flex gap-4  font-[600] items-center">
+                    <FaRepeat className="w-4 h-4 text-white" />
                     Start over
                 </button>
             </div>
-            <p className="text-[14px] lg:text-[16px] xl:text-[18px] font-sub">
+            <p className="font-sub text-center">
                 Did you also know we have an app to pick a <Link to={''} className="underline"> name for your pet</Link>🐶
             </p>
         </section>

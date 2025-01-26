@@ -14,7 +14,7 @@ const AnimatedList = ({ items }: AnimatedListProps) => {
         <div key={index}>
           {index < currentIndex ? (
             // Completed items are displayed as plain text
-            <p className="text-[14px] lg:text-[16px] xl:text-[18px]">- {item}</p>
+            <p>- {item}</p>
           ) : index === currentIndex ? (
             // The current item is animated
             <AnimatedText

@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { MdRadioButtonChecked, MdRadioButtonUnchecked } from "react-icons/md"
 import { RiArrowDropDownFill } from "react-icons/ri"
 
 const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<number>>}) => {
@@ -43,13 +42,13 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
 
 
     return (
-        <section className="flex items-center py-8 px-6 flex-col gap-6 rounded-lg bg-white text-black w-[90%] md:max-w-[42rem]">
-        <p tabIndex={0} className="w-[90%] text-[15px] lg:text-[16px] text-center font-sub leading-relaxed pb-6 border-b-[1.8px] border-b-gray-300">
+        <section className="flex items-center p-4 md:p-12 shadow-lg flex-col gap-6 rounded-lg bg-white text-black  w-full max-w-2xl">
+        <p tabIndex={0} className="text-center font-sub pb-6 border-b-[1.8px] border-b-gray-300">
           Unveil the ideal name for your baby with Named by AI, a clever name generator that uses artificial intelligence to find exceptional, meaningful names tailored to your preferences
         </p>
-        <form className="w-[90%] flex flex-col gap-10" noValidate onSubmit={handleSubmit}>
-          <div tabIndex={0}  className="flex flex-col gap-2 font-sub w-[100%] sm:w-[330px]">
-              <h2 className=" text-[16px] lg:text-[18px] font-main">
+        <form className="w-[100%] flex flex-col gap-8" noValidate onSubmit={handleSubmit}>
+          <div tabIndex={0}  className="flex flex-col gap-3 font-sub w-[100%] sm:w-[330px]">
+              <h2 className="text-lg font-main">
                 What is the baby's gender?
               </h2>
             <div tabIndex={0} className="flex w-[100%] justify-between items-center cursor-pointer" onClick={() => {updateGender("BOY")}} >
@@ -57,7 +56,9 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
                 Boy
               </p>
               {
-                formData.gender === "BOY" ? <MdRadioButtonChecked className="cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10" /> : <MdRadioButtonUnchecked className="text-gray-300 cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10" />
+                formData.gender === "BOY" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                <div className="w-[14px] h-[14px] rounded-full bg-black" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
               }
             </div>
 
@@ -66,7 +67,9 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
                 Girl
               </p>
               {
-                formData.gender === "GIRL" ? <MdRadioButtonChecked className="cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10" /> : <MdRadioButtonUnchecked className="text-gray-300 cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10" />
+                formData.gender === "GIRL" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                  <div className="w-[14px] h-[14px] rounded-full bg-black" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
               }
             </div>
 
@@ -75,13 +78,15 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
                 Unknown
               </p>
               {
-                formData.gender === "UNKNOWN" ? <MdRadioButtonChecked className="cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10" /> : <MdRadioButtonUnchecked className="text-gray-300 cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10"  />
+                formData.gender === "UNKNOWN" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                <div className="w-[14px] h-[14px] rounded-full bg-black" />
+              </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
               }
             </div>
           </div>
 
           <label htmlFor="name_origin" className="flex flex-col gap-2 w-[100%] sm:w-[330px]" tabIndex={0}>
-            <h2 className=" text-[16px] lg:text-[18px] font-main">
+            <h2 className="text-lg font-main">
               What is your preferred name origin?
             </h2>
             <div className="w-[100%] relative">
@@ -99,7 +104,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
           </label>
 
           <label htmlFor="meaning" className="flex flex-col gap-2" tabIndex={0}>
-            <h2 className=" text-[16px] lg:text-[18px] font-main">
+            <h2 className="text-lg font-main">
               Would you like the name to have a specific meaning?
             </h2>
             <div className="w-[100%] sm:w-[330px] relative">
@@ -117,7 +122,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
           </label>
 
           <div tabIndex={0}  className="flex flex-col gap-2 font-sub w-[100%]">
-              <h2 className=" text-[16px] lg:text-[18px] font-main">
+              <h2 className="text-lg font-main">
                 Do you want a popular or unique name?
               </h2>
             <div tabIndex={0} className="flex w-[100%] justify-between const updateGender = (gender: string)  sm:w-[330px] items-center cursor-pointer" onClick={() => {updateNameType("POPULAR")}} >
@@ -125,7 +130,9 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
                 Popular
               </p>
               {
-                formData.name_type === "POPULAR" ? <MdRadioButtonChecked className="cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10" /> : <MdRadioButtonUnchecked className="text-gray-300 cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10" />
+                formData.name_type === "POPULAR" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                  <div className="w-[14px] h-[14px] rounded-full bg-black" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
               }
             </div>
 
@@ -134,7 +141,9 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
                 Unique
               </p>
               {
-                formData.name_type === "UNIQUE" ? <MdRadioButtonChecked className="cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10" /> : <MdRadioButtonUnchecked className="text-gray-300 cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10" />
+                formData.name_type === "UNIQUE" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                  <div className="w-[14px] h-[14px] rounded-full bg-black" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
               }
             </div>
 
@@ -143,20 +152,22 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
                 No preference
               </p>
               {
-                formData.name_type === "NO PREFERENCE" ? <MdRadioButtonChecked className="cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10" /> : <MdRadioButtonUnchecked className="text-gray-300 cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10"  />
+                formData.name_type === "NO PREFERENCE" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                  <div className="w-[14px] h-[14px] rounded-full bg-black" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
               }
             </div>
           </div>
 
           <label htmlFor="names_avoid" tabIndex={0}  className="flex flex-col gap-2 font-sub w-[100%]">
-            <h2 className=" text-[16px] lg:text-[18px] font-main">
+            <h2 className="text-lg font-main">
               Are there any names you would like to avoid due to personal reasons or associations?
             </h2>
             <input type="text" name="names_avoid" id="names_avoid" value={formData.names_avoid} onChange={updateInput} placeholder="e.g. Gary, Robyn, Sam" className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] sm:w-[330px] border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]"  />
           </label>
 
           <div tabIndex={0}  className="flex flex-col gap-2 font-sub w-[100%]">
-              <h2 className=" text-[16px] lg:text-[18px] font-main">
+              <h2 className="text-lg font-main">
                 Would you like a name with a nickname or shortened version?
               </h2>
             <div tabIndex={0} className="flex w-[100%] justify-between const updateGender = (gender: string)  sm:w-[330px] items-center cursor-pointer" onClick={() => {updateNameVersion("Yes")}} >
@@ -164,7 +175,9 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
                 Yes
               </p>
               {
-                formData.version === "Yes" ? <MdRadioButtonChecked className="cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10" /> : <MdRadioButtonUnchecked className="text-gray-300 cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10" />
+                formData.version === "Yes" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                  <div className="w-[14px] h-[14px] rounded-full bg-black" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
               }
             </div>
 
@@ -173,7 +186,9 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
                 No
               </p>
               {
-                formData.version === "No" ? <MdRadioButtonChecked className="cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10" /> : <MdRadioButtonUnchecked className="text-gray-300 cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10" />
+                formData.version === "No" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                  <div className="w-[14px] h-[14px] rounded-full bg-black" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
               }
             </div>
 
@@ -182,12 +197,14 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
                 No preference
               </p>
               {
-                formData.version === "NO PREFERENCE" ? <MdRadioButtonChecked className="cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10" /> : <MdRadioButtonUnchecked className="text-gray-300 cursor-pointer w-5 h-5 lg:w-7 lg:h-7 xl:w-10 xl:h-10"  />
+                formData.version === "NO PREFERENCE" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                  <div className="w-[14px] h-[14px] rounded-full bg-black" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
               }
             </div>
           </div>
 
-          <button type="submit" className="w-fit px-5 py-3 bg-[rgb(239,159,188)] rounded-full self-center text-white">
+          <button type="submit" className="w-fit px-[1rem] bg-[rgb(239,159,188)] rounded-full self-center text-white font-[600] h-[3rem] min-h-[3rem]">
             Generate names
           </button>
         </form>

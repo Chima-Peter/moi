@@ -74,7 +74,7 @@ const UserEmail = ({ step, setStep }: UserEmailProps) => {
 
 
     return (
-        <section className="flex items-center py-8 px-6 flex-col gap-10 rounded-lg bg-white text-black w-[90%] md:max-w-[42rem] min-h-[400px]">
+        <section className="flex items-center p-4 md:p-12 shadow-lg flex-col gap-10 rounded-lg bg-white text-black  w-full max-w-2xl min-h-[400px]">
             <p className="font-sub">
                 While we search, signup to keep in the loop on all things baby names!
             </p>
@@ -104,18 +104,14 @@ const UserEmail = ({ step, setStep }: UserEmailProps) => {
                 </div>
             </form>
             {
-                delay ? 
+                !delay ? 
                 <button className="text-[16px] xl:text-[18px] outline-none self-center w-[100%] text-center text-blue-500" onClick={moveToNextStep}>
                     No thanks, show me your names! </button>
                     : 
-                <div className="flex items-center gap-1 w-[100%] self-center justify-center outline-none" >
-                    <p className="text-[16px] xl:text-[18px] text-blue-500">
+                    <p className="text-blue-500">
                         Searching the galaxy of baby names, just a moment! 
+                        <span className="inline-block animate-bounce">✨👶🌟</span>
                     </p>
-                    <p className="inline animate-bounce">
-                        ✨👶🌟
-                    </p>
-                </div>
             }
         </section>
     )

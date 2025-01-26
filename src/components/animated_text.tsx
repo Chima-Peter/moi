@@ -29,7 +29,7 @@ const AnimatedText = ({ text, onComplete }: AnimatedTextProps) => {
   }, []);
 
   return (
-    <p className={animationCompleted ? "animation-completed text-[14px] lg:text-[16px] font-sub xl:text-[18px]" : "font-sub"}>- <motion.span>{displayText}</motion.span>
+    <p className={animationCompleted ? "animation-completed font-sub" : "font-sub"}>- <motion.span>{displayText}</motion.span>
     </p>
   );
 }
