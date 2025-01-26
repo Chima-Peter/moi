@@ -87,7 +87,7 @@ const UserEmail = ({ step, setStep }: UserEmailProps) => {
                         </label>
                         <label className="max-w-xs flex flex-col gap-2 font-sub font-[600] text-[14px]  w-[215px]" htmlFor="email">
                             Email
-                            <input onChange={updateInputOnChange} onFocus={updateInputOnFocus} placeholder="Your last name" type="email" name="email" id="email" className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]" />
+                            <input onChange={updateInputOnChange} onFocus={updateInputOnFocus} placeholder="Your email" type="email" name="email" id="email" className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]" />
                         </label>
                     </div>
                     <button type="submit" className="w-fit px-[1rem] h-[3rem] bg-cyan-500 rounded-full text-black md:self-end">
