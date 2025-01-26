@@ -81,16 +81,16 @@ const UserEmail = ({ step, setStep }: UserEmailProps) => {
             <form onSubmit={handleSubmit} noValidate className="w-[100%] flex flex-col gap-4">
                 <div className="flex flex-col md:flex-row w-[100%] md:items-start justify-between gap-8 md:gap-0">
                     <div className="w-[100%] md:w-[80%] flex flex-col md:flex-row justify-normal md:justify-between gap-3 md:gap-0">
-                        <label className="w-[100%] flex flex-col gap-2 md:w-[48%]" htmlFor="first_name">
+                        <label className="max-w-xs flex flex-col gap-2 font-sub font-[600] text-[14px]" htmlFor="first_name">
                             First Name
                             <input onChange={updateInputOnChange} onFocus={updateInputOnFocus} placeholder="Your first name" type="text" name="first_name" id="first_name" className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]" />
                         </label>
-                        <label className="w-[100%] flex flex-col gap-2 md:w-[48%]" htmlFor="email">
+                        <label className="max-w-xs flex flex-col gap-2 font-sub font-[600] text-[14px]" htmlFor="email">
                             Email
                             <input onChange={updateInputOnChange} onFocus={updateInputOnFocus} placeholder="Your last name" type="email" name="email" id="email" className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]" />
                         </label>
                     </div>
-                    <button type="submit" className="w-[100%] md:w-fit px-8 py-3 bg-cyan-700 rounded-full text-black self-end">
+                    <button type="submit" className="w-fit px-[1rem] h-[3rem] bg-cyan-500 rounded-full text-black md:self-end">
                         Save
                     </button>
                 </div>
@@ -104,7 +104,7 @@ const UserEmail = ({ step, setStep }: UserEmailProps) => {
                 </div>
             </form>
             {
-                !delay ? 
+                delay ? 
                 <button className="text-[16px] xl:text-[18px] outline-none self-center w-[100%] text-center text-blue-500" onClick={moveToNextStep}>
                     No thanks, show me your names! </button>
                     : 

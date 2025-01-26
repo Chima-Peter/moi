@@ -42,55 +42,55 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
 
 
     return (
-        <section className="flex items-center p-4 md:p-12 shadow-lg flex-col gap-6 rounded-lg bg-white text-black  w-full max-w-2xl">
+        <section className="flex items-center p-4 md:p-12 shadow-lg flex-col gap-5 rounded-lg bg-white text-black  w-full max-w-2xl">
         <p tabIndex={0} className="text-center font-sub pb-6 border-b-[1.8px] border-b-gray-300">
           Unveil the ideal name for your baby with Named by AI, a clever name generator that uses artificial intelligence to find exceptional, meaningful names tailored to your preferences
         </p>
-        <form className="w-[100%] flex flex-col gap-8" noValidate onSubmit={handleSubmit}>
-          <div tabIndex={0}  className="flex flex-col gap-3 font-sub w-[100%] sm:w-[330px]">
+        <form className="w-[100%] flex flex-col gap-12" noValidate onSubmit={handleSubmit}>
+          <div tabIndex={0}  className="flex flex-col gap-3 font-sub max-w-xs">
               <h2 className="text-lg font-main">
                 What is the baby's gender?
               </h2>
             <div tabIndex={0} className="flex w-[100%] justify-between items-center cursor-pointer" onClick={() => {updateGender("BOY")}} >
-              <p>
+              <p className="text-[14px]">
                 Boy
               </p>
               {
-                formData.gender === "BOY" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                formData.gender === "BOY" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                 <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
               }
             </div>
 
             <div tabIndex={0} className="flex w-[100%] justify-between items-center cursor-pointer" onClick={() => {updateGender("GIRL")}} >
-              <p>
+              <p className="text-[14px]">
                 Girl
               </p>
               {
-                formData.gender === "GIRL" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                formData.gender === "GIRL" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                   <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
               }
             </div>
 
             <div tabIndex={0} className="flex w-[100%] justify-between items-center cursor-pointer" onClick={() => {updateGender("UNKNOWN")}}>
-              <p>
+              <p className="text-[14px]">
                 Unknown
               </p>
               {
-                formData.gender === "UNKNOWN" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                formData.gender === "UNKNOWN" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                 <div className="w-[14px] h-[14px] rounded-full bg-black" />
-              </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
+              </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
               }
             </div>
           </div>
 
-          <label htmlFor="name_origin" className="flex flex-col gap-2 w-[100%] sm:w-[330px]" tabIndex={0}>
+          <label htmlFor="name_origin" className="flex flex-col gap-2 w-[100%]" tabIndex={0}>
             <h2 className="text-lg font-main">
               What is your preferred name origin?
             </h2>
-            <div className="w-[100%] relative">
-              <select tabIndex={0} name="name_origin" id="name_origin" className="cursor-pointer focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] border-[1px] border-gray-400 appearance-none font-sub" value={formData.name_origin} onChange={updateSelectItems}>
+            <div className="max-w-xs relative">
+              <select tabIndex={0} name="name_origin" id="name_origin" className="cursor-pointer focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] border-[1px] border-gray-400 appearance-none font-sub text-[14px]" value={formData.name_origin} onChange={updateSelectItems}>
                 {
                   nameOriginOptions.map((name) => (
                     <option key={name} value={name}>
@@ -103,12 +103,12 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
             </div>
           </label>
 
-          <label htmlFor="meaning" className="flex flex-col gap-2" tabIndex={0}>
+          <label htmlFor="meaning" className="flex flex-col gap-2 w-[100%]" tabIndex={0}>
             <h2 className="text-lg font-main">
-              Would you like the name to have a specific meaning?
+              Would you like the name to have a specific meaning or theme?
             </h2>
-            <div className="w-[100%] sm:w-[330px] relative">
-              <select tabIndex={0} name="meaning" id="meaning" className="cursor-pointer focus:outline-2 focus:outline-gray-300 py-3 px-4 outline-none rounded-full w-[100%] border border-gray-400 appearance-none font-sub" value={formData.meaning} onChange={updateSelectItems}>
+            <div className="relative max-w-xs">
+              <select tabIndex={0} name="meaning" id="meaning" className="cursor-pointer focus:outline-2 focus:outline-gray-300 py-3 px-4 outline-none rounded-full w-[100%] border border-gray-400 appearance-none font-sub text-[14px]" value={formData.meaning} onChange={updateSelectItems}>
                 {
                   meaningOptions.map((name) => (
                     <option key={name} value={name}>
@@ -125,36 +125,36 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               <h2 className="text-lg font-main">
                 Do you want a popular or unique name?
               </h2>
-            <div tabIndex={0} className="flex w-[100%] justify-between const updateGender = (gender: string)  sm:w-[330px] items-center cursor-pointer" onClick={() => {updateNameType("POPULAR")}} >
-              <p>
+            <div tabIndex={0} className="flex max-w-xs justify-between items-center cursor-pointer" onClick={() => {updateNameType("POPULAR")}} >
+              <p className="text-[14px]">
                 Popular
               </p>
               {
-                formData.name_type === "POPULAR" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                formData.name_type === "POPULAR" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                   <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
               }
             </div>
 
-            <div tabIndex={0} className="flex w-[100%] justify-between     setFormData({ ...formData, gender: gende sm:w-[330px] items-center cursor-pointer" onClick={() => {updateNameType("UNIQUE")}} >
-              <p>
+            <div tabIndex={0} className="flex justify-between max-w-xs items-center cursor-pointer" onClick={() => {updateNameType("UNIQUE")}} >
+              <p className="text-[14px]">
                 Unique
               </p>
               {
-                formData.name_type === "UNIQUE" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                formData.name_type === "UNIQUE" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                   <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
               }
             </div>
 
-            <div tabIndex={0} className="flex w-[100%] justify-between sm:w-[330px] items-center cursor-pointer" onClick={() => {updateNameType("NO PREFERENCE")}}>
-              <p>
+            <div tabIndex={0} className="flex max-w-xs justify-between sm:w-[330px] items-center cursor-pointer" onClick={() => {updateNameType("NO PREFERENCE")}}>
+              <p className="text-[14px]">
                 No preference
               </p>
               {
-                formData.name_type === "NO PREFERENCE" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                formData.name_type === "NO PREFERENCE" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                   <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
               }
             </div>
           </div>
@@ -163,43 +163,43 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
             <h2 className="text-lg font-main">
               Are there any names you would like to avoid due to personal reasons or associations?
             </h2>
-            <input type="text" name="names_avoid" id="names_avoid" value={formData.names_avoid} onChange={updateInput} placeholder="e.g. Gary, Robyn, Sam" className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] sm:w-[330px] border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]"  />
+            <input type="text" name="names_avoid" id="names_avoid" value={formData.names_avoid} onChange={updateInput} placeholder="e.g. Gary, Robyn, Sam" className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full max-w-xs border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]"  />
           </label>
 
           <div tabIndex={0}  className="flex flex-col gap-2 font-sub w-[100%]">
               <h2 className="text-lg font-main">
                 Would you like a name with a nickname or shortened version?
               </h2>
-            <div tabIndex={0} className="flex w-[100%] justify-between const updateGender = (gender: string)  sm:w-[330px] items-center cursor-pointer" onClick={() => {updateNameVersion("Yes")}} >
-              <p>
+            <div tabIndex={0} className="flex justify-between max-w-xs items-center cursor-pointer" onClick={() => {updateNameVersion("Yes")}} >
+              <p className="text-[14px]">
                 Yes
               </p>
               {
-                formData.version === "Yes" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                formData.version === "Yes" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                   <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
               }
             </div>
 
-            <div tabIndex={0} className="flex w-[100%] justify-between     setFormData({ ...formData, gender: gende sm:w-[330px] items-center cursor-pointer" onClick={() => {updateNameVersion("No")}} >
-              <p>
+            <div tabIndex={0} className="flex justify-between max-w-xs items-center cursor-pointer" onClick={() => {updateNameVersion("No")}} >
+              <p className="text-[14px]">
                 No
               </p>
               {
-                formData.version === "No" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                formData.version === "No" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                   <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
               }
             </div>
 
-            <div tabIndex={0} className="flex w-[100%] justify-between sm:w-[330px] items-center cursor-pointer" onClick={() => {updateNameVersion("NO PREFERENCE")}}>
-              <p>
+            <div tabIndex={0} className="flex w-[100%] justify-between max-w-xs items-center cursor-pointer" onClick={() => {updateNameVersion("NO PREFERENCE")}}>
+              <p className="text-[14px]">
                 No preference
               </p>
               {
-                formData.version === "NO PREFERENCE" ? <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-black rounded-full">
+                formData.version === "NO PREFERENCE" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                   <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border-[1.8px] border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
               }
             </div>
           </div>
