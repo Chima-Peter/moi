@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import UserForm from "../components/user_form"
 import UserEmail from "../components/user_email"
 import Waiting from "../components/waiting"
@@ -27,7 +27,7 @@ const HomePage = () => {
         allComponents[step]
       }
       <p className="text-[14px] lg:text-[16px] xl:text-[18px] capitalize font-sub font-semibold">
-        🐶 <Link to={''} className="underline">AI named my pet</Link>
+        🐶 <Link to={'https://www.ainamedmypet.com/?utm_source=named-by-ai'} className="underline">AI named my pet</Link>
       </p>
     </main>
   )
