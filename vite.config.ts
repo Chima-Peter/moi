@@ -1,4 +1,3 @@
-// vite.config.js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
@@ -7,12 +6,18 @@ export default defineConfig(({ command }) => {
   const config = {
     plugins: [
       react(),
-   ],
+    ],
     base: '/',
-  }
-
-  if (command !== 'serve') {
-    config.base = '/repo_name/'
+    build: {
+      outDir: 'dist',          // Customize the output directory
+      sourcemap: false,        // Disable source maps for production
+      minify: true,        // Set minification to 'terser'
+      terserOptions: {
+        compress: {
+          drop_console: true,  // Optional: Remove console.log statements in production
+        },
+      },
+    },
   }
 
   return config

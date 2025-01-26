@@ -4,7 +4,7 @@ import HomePage from "./pages/home_page";
 
 const App = () => {
   return (
-      <BrowserRouter basename={import.meta.env.PROD ? '/mother_of_invention' : '/'}>
+      <BrowserRouter>
          <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="*" element={<ErrorPage />} />
