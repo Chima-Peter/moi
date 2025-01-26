@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 
 
 const HomePage = () => {
-  const [step, setStep] = useState<number>(0) 
+  const [step, setStep] = useState<number>(3) 
   
   const allComponents = [
     <UserForm setStep={setStep} />,

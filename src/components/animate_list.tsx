@@ -9,7 +9,7 @@ const AnimatedList = ({ items }: AnimatedListProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <div className="flex flex-col gap-4 font-sub">
+    <div className="flex flex-col gap-4 font-sub self-start">
       {items.map((item, index) => (
         <div key={index}>
           {index < currentIndex ? (

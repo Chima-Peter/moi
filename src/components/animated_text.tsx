@@ -15,7 +15,7 @@ const AnimatedText = ({ text, onComplete }: AnimatedTextProps) => {
   useEffect(() => {
     const controls = animate(count, text.length, {
       type: "tween",
-      duration: 1, // Adjust the duration for typing speed
+      duration: 0.5, // Adjust the duration for typing speed
       ease: "linear",
       onUpdate: (latest) => {
         if (Math.round(latest) === text.length && !animationCompleted) {
@@ -29,7 +29,7 @@ const AnimatedText = ({ text, onComplete }: AnimatedTextProps) => {
   }, []);
 
   return (
-    <p className={animationCompleted ? "animation-completed font-sub" : "font-sub"}>- <motion.span>{displayText}</motion.span>
+    <p className={animationCompleted ? "animation-completed font-sub text-left" : "font-sub text-left"}>- <motion.span className="text-left">{displayText}</motion.span>
     </p>
   );
 }
