@@ -106,7 +106,7 @@ const UserEmail = ({ step, setStep }: UserEmailProps) => {
             {
                 delay ? 
                 <button className="outline-none self-center w-[100%] text-center text-sky-500 font-medium" onClick={moveToNextStep}>
-                    No thanks, show me your names! </button>
+                    No thanks, show me the names! </button>
                     : 
                     <p className="text-blue-500">
                         Searching the galaxy of baby names, just a moment! 
