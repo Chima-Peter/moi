@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { isAlpha, isEmpty } from "validator";
 import isEmail from "validator/lib/isEmail";
 
@@ -10,22 +10,25 @@ interface UserEmailProps {
 const UserEmail = ({ step, setStep }: UserEmailProps) => {
     const [formData, setFormData] = useState({
         first_name: '',
-        email: ''
+        email: '',
+        first_name_error: '',
+        email_error_name: ''
     })
-
-    const [error, setError] = useState(false)
 
     const [delay, setDelay] = useState(false)
 
-    useEffect(() => {
+    if (step === 1) {
         setTimeout(() => {
             setDelay(true)
-        }, 10000)
-    }, [step])
+        }, 5000)
+    }
 
-    const updateInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setError(false)
-        setFormData({ ...formData, [event.target.name]: event.target.value })
+    const updateInputOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        event.target.name === "first_name" ? setFormData({ ...formData, first_name_error: "", [event.target.name]: event.target.value }) : setFormData({ ...formData, email_error_name: "", [event.target.name]: event.target.value })
+    }
+
+    const updateInputOnFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+        event.target.name === "first_name" ? setFormData({ ...formData, first_name_error: "", [event.target.name]: event.target.value }) : setFormData({ ...formData, email_error_name: "", [event.target.name]: event.target.value })
     }
 
     const moveToNextStep = () => {
@@ -33,13 +36,41 @@ const UserEmail = ({ step, setStep }: UserEmailProps) => {
     }
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        if (!isAlpha(formData.first_name) || !isEmail(formData.email)) {
-            setError(true)
-        } else {
-            setStep(2)
+        event.preventDefault();
+      
+        const errors: {
+          first_name_error?: string;
+          email_error_name?: string;
+        } = {};
+      
+        // Check if `first_name` is empty
+        if (isEmpty(formData.first_name)) {
+          errors.first_name_error = "First name is required";
+        } else if (!isAlpha(formData.first_name)) {
+          // Check if `first_name` contains only letters
+          errors.first_name_error = "First name should be letters only";
         }
-    }
+      
+        // Check if `email` is valid
+        if (isEmpty(formData.email)) {
+          errors.email_error_name = "Email is required";
+        } else if (!isEmail(formData.email)) {
+          errors.email_error_name = "Enter a valid email address";
+        }
+      
+        // If there are errors, update the state
+        if (Object.keys(errors).length > 0) {
+          setFormData((prevData) => ({
+            ...prevData,
+            ...errors,
+          }));
+          return;
+        }
+      
+        // Proceed to the next step if no errors
+        setStep(2);
+      };
+      
 
 
     return (
@@ -52,22 +83,25 @@ const UserEmail = ({ step, setStep }: UserEmailProps) => {
                     <div className="w-[100%] md:w-[80%] flex flex-col md:flex-row justify-normal md:justify-between gap-3 md:gap-0">
                         <label className="w-[100%] flex flex-col gap-2 md:w-[48%]" htmlFor="first_name">
                             First Name
-                            <input onChange={updateInput} placeholder="Your first name" type="text" name="first_name" id="first_name" className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]" />
+                            <input onChange={updateInputOnChange} onFocus={updateInputOnFocus} placeholder="Your first name" type="text" name="first_name" id="first_name" className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]" />
                         </label>
                         <label className="w-[100%] flex flex-col gap-2 md:w-[48%]" htmlFor="email">
                             Email
-                            <input onChange={updateInput} placeholder="Your last name" type="email" name="email" id="email" className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]" />
+                            <input onChange={updateInputOnChange} onFocus={updateInputOnFocus} placeholder="Your last name" type="email" name="email" id="email" className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]" />
                         </label>
                     </div>
                     <button type="submit" className="w-[100%] md:w-fit px-8 py-3 bg-cyan-700 rounded-full text-black self-end">
                         Save
                     </button>
                 </div>
-                {
-                    error && <p className="text-sm text-red-700 font-sub self-center">
-                        First name and email fields are required!
+                <div className="flex flex-col gap-1 w-[100%] self-start justify-start">
+                    <p className="text-sm text-red-700 font-sub">
+                        {formData.first_name_error}
                     </p>
-                }
+                    <p className="text-sm text-red-700 font-sub">
+                        {formData.email_error_name}
+                    </p>
+                </div>
             </form>
             {
                 delay ? 

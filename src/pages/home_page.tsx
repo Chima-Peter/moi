@@ -1,6 +1,10 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import UserForm from "../components/user_form"
 import UserEmail from "../components/user_email"
+import Waiting from "../components/waiting"
+import GeneratedNames from "../components/generated_names"
+import { Link } from "react-router-dom"
+
 
 
 const HomePage = () => {
@@ -8,7 +12,9 @@ const HomePage = () => {
   
   const allComponents = [
     <UserForm setStep={setStep} />,
-    <UserEmail step={step} setStep={setStep} />
+    <UserEmail step={step} setStep={setStep} />,
+    <Waiting step={step} setStep={setStep} />,
+    <GeneratedNames setStep={setStep} />
   ]
 
 
@@ -20,6 +26,9 @@ const HomePage = () => {
       {
         allComponents[step]
       }
+      <p className="text-[14px] lg:text-[16px] xl:text-[18px] capitalize font-sub font-semibold">
+        🐶 <Link to={''} className="underline">AI named my pet</Link>
+      </p>
     </main>
   )
 }
