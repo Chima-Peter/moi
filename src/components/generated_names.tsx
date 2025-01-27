@@ -26,24 +26,21 @@ const GeneratedNames = ({ setStep }: GeneratedNamesProps) => {
         setStep(0)
     }
     return (
-        <section className="flex items-center p-4 md:p-12 shadow-lg flex-col gap-6 rounded-lg bg-white text-black w-full max-w-2xl min-h-[400px]">
-            <h1 className="text-[18px] text-black self-start">
+        <section className="flex items-center p-4 md:p-12 shadow-lg font-main flex-col gap-6 rounded-lg bg-[#f8f7ee] text-black w-full max-w-2xl min-h-[400px]">
+            <h1 className="text-[18px] text-black self-start font-bold">
                 Behold! Enchanting baby names we've found just for you:
             </h1>
             <AnimatedList items={names} />
             <div className="flex gap-3 sm:gap-4 w-[100%] flex-col sm:flex-row justify-center items-center">
-                <button  className="w-fit px-[0.75rem] text-[0.875rem] h-[2rem] min-h-[2rem] bg-[rgb(239,159,188)] rounded-full justify-center text-white flex gap-4 items-center font-[600]">
+                <button  className="w-fit px-[0.75rem] text-[0.875rem] h-[2rem] min-h-[2rem] bg-[#6b6ea5] rounded-full justify-center text-white flex gap-4 items-center font-[600]">
                     <GoPlusCircle className="w-4 h-4 text-white" />
                     Show me more
                 </button>
-                <button onClick={backToForm}  className="w-fit px-[0.75rem] text-[0.875rem] h-[2rem] min-h-[2rem] bg-[rgb(239,159,188)] rounded-full justify-center text-white  flex gap-4  font-[600] items-center">
+                <button onClick={backToForm}  className="w-fit px-[0.75rem] text-[0.875rem] h-[2rem] min-h-[2rem] bg-[#6b6ea5] rounded-full justify-center text-white  flex gap-4  font-[600] items-center">
                     <FaRepeat className="w-4 h-4 text-white" />
                     Start Over
                 </button>
             </div>
-            <p className="font-sub text-center">
-                Did you also know we have an app to pick a <Link to={''} className="underline"> name for your pet</Link>🐶
-            </p>
         </section>
     )
 }

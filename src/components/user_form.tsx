@@ -42,13 +42,13 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
 
 
     return (
-        <section className="flex items-center p-4 md:p-12 shadow-lg flex-col gap-5 rounded-lg bg-white text-black  w-full max-w-2xl">
+        <section className="flex items-center p-4 md:p-12 shadow-lg flex-col gap-5 rounded-lg  bg-[#f8f7ee] text-black  w-full max-w-2xl">
         <p tabIndex={0} className="text-center font-sub pb-6 border-b-[1.8px] border-b-gray-300">
-          Unveil the ideal name for your baby with Named by AI, a clever name generator that uses artificial intelligence to find exceptional, meaningful names tailored to your preferences
+          Welcome to the Mother of Invention Baby Name Generator. We know how exciting (and challenging) it is to find the perfect name for your little one, so we've leveraged the latest AI technology to help you discover the perfect custom-tailored name.
         </p>
         <form className="w-[100%] flex flex-col gap-[34px]" noValidate onSubmit={handleSubmit}>
           <div tabIndex={0}  className="flex flex-col font-sub max-w-xs">
-              <h2 className="text-lg font-main">
+              <h2 className="text-lg font-main font-bold">
                 What is the baby's gender?
               </h2>
             <div tabIndex={0} className="flex w-[100%] py-[8px] justify-between items-center cursor-pointer" onClick={() => {updateGender("BOY")}} >
@@ -86,7 +86,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
           </div>
 
           <label htmlFor="name_origin" className="flex flex-col w-[100%]" tabIndex={0}>
-            <h2 className="text-lg font-main py-[0.5rem]">
+            <h2 className="text-lg font-main py-[0.5rem] font-bold">
               What is your preferred name origin?
             </h2>
             <div className="max-w-xs relative">
@@ -104,7 +104,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
           </label>
 
           <label htmlFor="meaning" className="flex flex-col w-[100%]" tabIndex={0}>
-            <h2 className="text-lg font-main  py-[0.5rem]">
+            <h2 className="text-lg font-main  py-[0.5rem] font-bold">
               Would you like the name to have a specific meaning or theme?
             </h2>
             <div className="relative max-w-xs">
@@ -122,7 +122,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
           </label>
 
           <div tabIndex={0}  className="flex flex-col font-sub w-[100%]">
-              <h2 className="text-lg font-main">
+              <h2 className="text-lg font-main font-bold">
                 Do you want a popular or unique name?
               </h2>
             <div tabIndex={0} className="flex py-[8px] max-w-xs justify-between items-center cursor-pointer" onClick={() => {updateNameType("POPULAR")}} >
@@ -160,14 +160,14 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
           </div>
 
           <label htmlFor="names_avoid" tabIndex={0}  className="flex flex-col font-sub w-[100%]">
-            <h2 className="text-lg font-main py-[0.5rem]">
+            <h2 className="text-lg font-main py-[0.5rem] font-bold">
               Are there any names you would like to avoid due to personal reasons or associations?
             </h2>
             <input type="text" name="names_avoid" id="names_avoid" value={formData.names_avoid} onChange={updateInput} placeholder="e.g. Gary, Robyn, Sam" className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full max-w-xs border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]"  />
           </label>
 
           <div tabIndex={0}  className="flex flex-col font-sub w-[100%]">
-              <h2 className="text-lg font-main">
+              <h2 className="text-lg font-main font-bold">
                 Would you like a name with a nickname or shortened version?
               </h2>
             <div tabIndex={0} className="flex justify-between py-[8px] max-w-xs items-center cursor-pointer" onClick={() => {updateNameVersion("Yes")}} >
@@ -204,7 +204,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
             </div>
           </div>
 
-          <button type="submit" className="w-fit px-[1rem] bg-[rgb(239,159,188)] rounded-full self-center text-white font-[500] tracking-tight h-[3rem] min-h-[3rem] text-[14px]">
+          <button type="submit" className="w-fit px-[1rem] bg-[#6b6ea5] rounded-full self-center text-white font-[700] tracking-tight h-[3rem] min-h-[3rem] text-[14px]">
             Generate Names
           </button>
         </form>

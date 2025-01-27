@@ -19,15 +19,13 @@ const HomePage = () => {
 
 
   return (
-    <main className="bg-[rgb(239,159,188)] w-[100%] flex p-4 md:p-12 items-center font-main flex-col text-white min-h-[100vh] gap-4 justify-center">
-      <h1 tabIndex={0} className="text-4xl font-[500] text-white">
-        Named by AI ✨
-      </h1>
+    <main className="bg-[#6b6ea5] w-[100%] flex p-4 md:p-12 items-center font-main flex-col text-white min-h-[100vh] justify-center">
+      <img src="/logo.png" className="w-32 aspect-square translate-y-4" alt="Mother of Invention" />
       {
         allComponents[step]
       }
-      <p className="capitalize font-sub font-semibold pt-2">
-        🐶 <Link to={'https://www.ainamedmypet.com/?utm_source=named-by-ai'} className="underline">AI named my pet</Link>
+      <p className="capitalize font-sub font-medium pt-6 flex items-center">
+        <img src="/favicon.png" alt="MOI" className="w-12 h-12" /> <Link to={'https://motherofinvention.com/'} target="_blank"  className="underline">Mother of Invention - Innovative Baby</Link>
       </p>
     </main>
   )

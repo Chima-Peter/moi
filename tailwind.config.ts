@@ -17,8 +17,8 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        main: ['"Secular One"', 'ui-sans-serif', 'system-ui'],
-        sub: ['Roboto', 'ui-sans-serif', 'system-ui'],
+        main: ['Copper', 'ui-sans-serif', 'system-ui'],
+        sub: ['Futura', 'ui-sans-serif', 'system-ui'],
       },
     },
   },

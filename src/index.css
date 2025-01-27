@@ -4,3 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer base {
+    @font-face {
+        font-family: 'Copper';
+        src: url("/Cooper\ Light\ BT.ttf");
+    }
+
+    @font-face {
+        font-family: 'Futura';
+        src: url("/futura\ medium\ bt.ttf");
+    }
+}
