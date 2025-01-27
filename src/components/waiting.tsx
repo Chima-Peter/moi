@@ -15,9 +15,9 @@ const Waiting = ({ step, setStep }: WaitingProps) => {
                 <p className="text-center">
                     Searching the galaxy of baby names, just a moment!
                 </p>
-                <img src="/public/worm.png" alt="Mother of Invention" className="w-5" />
-                <img src="/public/berry.png" alt="Mother of Invention" className="w-4" />
-                <img src="/public/apple.png" alt="Mother of Invention" className="w-4" />
+                <img src="/worm.png" alt="Mother of Invention" className="w-5" />
+                <img src="/berry.png" alt="Mother of Invention" className="w-4" />
+                <img src="/apple.png" alt="Mother of Invention" className="w-4" />
             </div>
         </section>
     )
