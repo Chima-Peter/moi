@@ -27,3 +27,9 @@ link[rel~="icon"] {
    background-size: 4px 4px,4px 4px;
    background-repeat: no-repeat;
   }
+
+  input[type="date"] {
+    -webkit-appearance: none; /* For Webkit browsers like Chrome and Safari */
+    -moz-appearance: none; /* For Firefox */
+    appearance: none; /* Standard syntax */
+  }

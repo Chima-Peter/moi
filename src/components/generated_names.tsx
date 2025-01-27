@@ -43,22 +43,22 @@ const GeneratedNames = ({ setStep }: GeneratedNamesProps) => {
     }
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    let fromDate, toDate
+    let fromDate, toDate, item = ''
 
     // Get the formatted dates
     if (formData.from_due_date && formData.end_due_date) {
         fromDate = formatDate(formData.from_due_date);
         toDate = formatDate(formData.end_due_date);
-    }
 
-    // Create the string with the format you want
-    const item = `Leo (${fromDate} - ${toDate})`;
+        // Create the string with the format you want
+        item = `Leo (${fromDate} - ${toDate})`;
+    }
 
     
     return (
         <section className="flex items-center p-4 md:p-12 shadow-lg font-main flex-col gap-6 rounded-lg bg-[#f8f7ee] text-black w-full max-w-2xl min-h-[400px]">
             {
-                (formData.not_pregnant === false) ? 
+                (item !== '') ? 
                 <div className="flex flex-col w-[100%] gap-2">
                     <h1 className="text-[18px] text-black self-start font-bold">
                         🌟 Here's Your Baby's Astrological Sign:
