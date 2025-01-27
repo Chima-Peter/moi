@@ -104,18 +104,16 @@ const UserEmail = ({ step, setStep }: UserEmailProps) => {
                 </div>
             </form>
             {
-                delay ? 
+                !delay ? 
                     <button className="outline-none self-center w-[100%] text-center text-sky-500 font-medium" onClick={moveToNextStep}>
                     No thanks, show me the names! </button>
                     : 
-                    <div className="flex gap-0 items-center">
-                        <p className="text-center">
+                        <p className="text-center inline">
                             Searching the galaxy of baby names, just a moment!
-                        </p>
-                        <img src="/worm.png" alt="Mother of Invention" className="w-5" />
-                        <img src="/berry.png" alt="Mother of Invention" className="w-4" />
-                        <img src="/apple.png" alt="Mother of Invention" className="w-4" />
-                    </div>
+                        <img src="/worm.png" alt="Mother of Invention" className="w-5 inline animate-bounce" />
+                        <img src="/berry.png" alt="Mother of Invention" className="w-4 inline animate-bounce" />
+                        <img src="/apple.png" alt="Mother of Invention" className="w-4 inline animate-bounce" />
+                    </p>
             }
         </section>
     )
