@@ -1,20 +1,31 @@
-import { useState } from "react"
-import { RiArrowDropDownFill } from "react-icons/ri"
+import { useRef, useState } from "react"
+import { RiCheckboxBlankLine, RiCheckboxFill } from "react-icons/ri"
+import useRequestContext from "../hooks/use_request_context"
+import { FaRegCalendar } from "react-icons/fa6"
 
 const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<number>>}) => {
-    const [formData, setFormData] = useState({
-        gender: '',
-        name_origin: 'No preference',
-        meaning: 'No preference',
-        due_date: '',
-        name_type: '',
-        names_avoid: '',
-        version: ''
-    })
+    const { formData, setFormData } = useRequestContext()
+    const fromPicker = useRef<HTMLInputElement>(null)
+    const toPicker = useRef<HTMLInputElement>(null)
 
     const nameOriginOptions = ['No preference', 'English', 'Spanish', 'French', 'German', 'Italian', 'Scandinavian', 'Irish', 'Indian', 'Arabic', 'African', 'Japanese', 'Chinese', 'Korean', 'Russian', 'Greek', 'Hebrew', 'Latin', 'Native American', 'Hawaiian', 'Portugese', 'Dutch', 'Hungarian', 'Polish', 'Turkish', 'Elvish', 'Westerosi', 'Galactic', 'Hogwarts', 'Dystopian', 'Mythological', 'Fantasy', 'Sci-fi', 'Other']
 
     const meaningOptions = ['No preference', 'Nature', 'Strength', 'Love', 'Virtue', 'Luck', 'Happiness', 'Courage', 'Wisdom', 'Beauty', 'Peace', 'Celestial', 'Mythical', 'Artistic', 'Historic', 'Spiritual', 'Other']
+
+    const handleOpenCalendar1 = () => {
+      // Trigger the native input's click event
+      if (fromPicker.current) {
+        fromPicker.current.showPicker(); // Only supported in modern browsers
+      }
+    };
+
+    const handleOpenCalendar2 = () => {
+      // Trigger the native input's click event
+      if (toPicker.current) {
+        toPicker.current.showPicker(); // Only supported in modern browsers
+      }
+    };
+
 
     const updateGender = (gender: string) => {
         setFormData({ ...formData, gender: gender })
@@ -36,9 +47,13 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
         setFormData({ ...formData, version: version })
     }
 
+    const toggleNotPregnant = () => {
+      setFormData({ ...formData, not_pregnant: !formData.not_pregnant, end_due_date: '', from_due_date: ''})
+    }
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        setStep(1)
+        setStep(3)
     }
 
 
@@ -59,7 +74,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               {
                 formData.gender === "BOY" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                 <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-500 rounded-full" />
               }
             </div>
 
@@ -70,7 +85,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               {
                 formData.gender === "GIRL" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                   <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-500 rounded-full" />
               }
             </div>
 
@@ -81,45 +96,39 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               {
                 formData.gender === "UNKNOWN" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                 <div className="w-[14px] h-[14px] rounded-full bg-black" />
-              </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
+              </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-500 rounded-full" />
               }
             </div>
           </div>
 
-          <label htmlFor="name_origin" className="flex flex-col w-[100%]" tabIndex={0}>
+          <label htmlFor="name_origin" className="flex flex-col max-w-xs" tabIndex={0}>
             <h2 className="text-lg font-main py-[0.5rem] font-bold">
               What is your preferred name origin?
             </h2>
-            <div className="max-w-xs relative">
-              <select tabIndex={0} name="name_origin" id="name_origin" className="cursor-pointer focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] border-[1px] border-gray-400 appearance-none font-sub text-[14px]" value={formData.name_origin} onChange={updateSelectItems}>
-                {
-                  nameOriginOptions.map((name) => (
-                    <option key={name} value={name}>
-                      {name}
-                    </option>
-                  ))
-                }
-              </select>
-              <RiArrowDropDownFill className="absolute right-2 cursor-pointer top-4 md:top-3 xl:top-2 w-5 h-5 md:w-7 md:h-7 xl:w-9 xl:h-9" />
-            </div>
+            <select tabIndex={0} name="name_origin" id="name_origin" className="cursor-pointer focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full w-[100%] border-[1px] border-gray-400 appearance-none font-sub text-[14px] max-w-xs" value={formData.name_origin} onChange={updateSelectItems}>
+              {
+                nameOriginOptions.map((name) => (
+                  <option key={name} value={name}>
+                    {name}
+                  </option>
+                ))
+              }
+            </select>
           </label>
 
-          <label htmlFor="meaning" className="flex flex-col w-[100%]" tabIndex={0}>
+          <label htmlFor="meaning" className="flex flex-col w-fit" tabIndex={0}>
             <h2 className="text-lg font-main  py-[0.5rem] font-bold">
               Would you like the name to have a specific meaning or theme?
             </h2>
-            <div className="relative max-w-xs">
-              <select tabIndex={0} name="meaning" id="meaning" className="cursor-pointer focus:outline-2 focus:outline-gray-300 py-3 px-4 outline-none rounded-full w-[100%] border border-gray-400 appearance-none font-sub text-[14px]" value={formData.meaning} onChange={updateSelectItems}>
-                {
-                  meaningOptions.map((name) => (
-                    <option key={name} value={name}>
-                      {name}
-                    </option>
-                  ))
-                }
-              </select>
-              <RiArrowDropDownFill className="absolute right-2 cursor-pointer top-4 md:top-3 xl:top-2 w-5 h-5 md:w-7 md:h-7 xl:w-9 xl:h-9" />
-            </div>
+            <select tabIndex={0} name="meaning" id="meaning" className="cursor-pointer focus:outline-2 focus:outline-gray-300 py-3 px-4 outline-none rounded-full w-[100%] border border-gray-400 font-sub max-w-xs appearance-none text-[14px]" value={formData.meaning} onChange={updateSelectItems}>
+              {
+                meaningOptions.map((name) => (
+                  <option key={name} value={name}>
+                    {name}
+                  </option>
+                ))
+              }
+            </select>
           </label>
 
           <div tabIndex={0}  className="flex flex-col font-sub w-[100%]">
@@ -133,7 +142,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               {
                 formData.name_type === "POPULAR" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                   <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-500 rounded-full" />
               }
             </div>
 
@@ -144,7 +153,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               {
                 formData.name_type === "UNIQUE" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                   <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-500 rounded-full" />
               }
             </div>
 
@@ -155,19 +164,84 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               {
                 formData.name_type === "NO PREFERENCE" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                   <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-500 rounded-full" />
               }
             </div>
           </div>
 
-          <label htmlFor="due_date" tabIndex={0}  className="flex flex-col font-sub w-[100%] cursor-pointer">
+          <div className="flex flex-col gap-2 w-[100%]">
             <h2 className="text-lg font-main py-[0.5rem] font-bold">
-              When is your expected due date
+              When is your expected due date?
             </h2>
-            <input type="date" name="due_date" id="due_date" value={formData.due_date} onChange={updateInput} className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full max-w-xs border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]"  />
-          </label>
 
-          <label htmlFor="names_avoid" tabIndex={0}  className="flex flex-col font-sub w-[100%]">
+            <label
+              htmlFor="from_due_date"
+              tabIndex={0}
+              className="flex flex-col font-sub max-w-xs relative"
+            >
+              <h2 className="text-[14px] font-main py-[0.5rem] font-semibold">
+                From
+              </h2>
+                {/* Date input field */}
+              <input
+                ref={fromPicker} // Attach the ref here
+                type="date"
+                disabled={formData.not_pregnant}
+                name="from_due_date"
+                id="from_due_date"
+                value={formData.from_due_date}
+                max={formData.end_due_date}
+                onChange={updateInput}
+                className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full max-w-xs border-[1px] border-gray-400 cursor-pointer appearance-none font-sub text-[16px] xl:text-[18px]"
+              />
+              {/* Calendar icon */}
+              <div
+                className="cursor-pointer text-black absolute bottom-5 right-5"
+                onClick={handleOpenCalendar1}
+              >
+                <FaRegCalendar size={14} />
+              </div>
+            </label>
+
+            <label
+              htmlFor="end_due_date"
+              tabIndex={0}
+              className="flex flex-col font-sub max-w-xs relative"
+            >
+              <h2 className="text-[14px] font-main py-[0.5rem] font-semibold">
+                To
+              </h2>
+                {/* Date input field */}
+              <input
+                ref={toPicker} // Attach the ref here
+                type="date"
+                disabled={formData.not_pregnant}
+                name="end_due_date"
+                id="end_due_date"
+                value={formData.end_due_date}
+                min={formData.from_due_date}
+                onChange={updateInput}
+                className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full max-w-xs border-[1px] border-gray-400 cursor-pointer appearance-none font-sub text-[16px] xl:text-[18px]"
+              />
+              {/* Calendar icon */}
+              <div
+                className="cursor-pointer text-black absolute bottom-5 right-5"
+                onClick={handleOpenCalendar2}
+              >
+                <FaRegCalendar size={14} />
+              </div>
+            </label>
+            <label htmlFor="not_pregnant" className="flex items-center gap-2 font-sub w-fit cursor-pointer">
+              {
+                formData.not_pregnant ? <RiCheckboxFill className="w-5 h-5" onClick={toggleNotPregnant} /> : <RiCheckboxBlankLine className="w-5 h-5" onClick={toggleNotPregnant} />
+              }
+              <p className="text-[12px] font-semibold">
+                I'm not pregnant yet
+              </p>
+            </label>
+          </div>
+
+          <label htmlFor="names_avoid" tabIndex={0}  className="flex flex-col font-sub w-fit">
             <h2 className="text-lg font-main py-[0.5rem] font-bold">
               Are there any names you would like to avoid due to personal reasons or associations?
             </h2>
@@ -185,7 +259,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               {
                 formData.version === "Yes" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                   <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-500 rounded-full" />
               }
             </div>
 
@@ -196,7 +270,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               {
                 formData.version === "No" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                   <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-500 rounded-full" />
               }
             </div>
 
@@ -207,7 +281,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               {
                 formData.version === "NO PREFERENCE" ? <div className="flex justify-center items-center w-[24px] h-[24px] border border-black rounded-full">
                   <div className="w-[14px] h-[14px] rounded-full bg-black" />
-                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-300 rounded-full" />
+                </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-500 rounded-full" />
               }
             </div>
           </div>

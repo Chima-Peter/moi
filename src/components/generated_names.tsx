@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
 import AnimatedList from "./animate_list";
 import { GoPlusCircle } from "react-icons/go";
 import { FaRepeat } from "react-icons/fa6";
+import AnimatedText from "./animated_text";
+import { useState } from "react";
+import useRequestContext from "../hooks/use_request_context";
+import formatDate from "../utils/format_date";
 
 
 interface GeneratedNamesProps {
@@ -9,6 +12,8 @@ interface GeneratedNamesProps {
 }
 
 const GeneratedNames = ({ setStep }: GeneratedNamesProps) => {
+    const { formData } = useRequestContext()
+
     const names = [
         "Avery: A unisex name of English origin meaning 'ruler of the elves,' it has a modern and trendy feel while being timeless.",
         "Quinn: This Irish name means 'wise' or 'intelligent' and is a popular unisex choice that conveys strength and individuality.",
@@ -25,8 +30,38 @@ const GeneratedNames = ({ setStep }: GeneratedNamesProps) => {
     const backToForm = () => {
         setStep(0)
     }
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    let fromDate, toDate
+
+    // Get the formatted dates
+    if (formData.from_due_date && formData.end_due_date) {
+        fromDate = formatDate(formData.from_due_date);
+        toDate = formatDate(formData.end_due_date);
+    }
+
+    // Create the string with the format you want
+    const item = `Leo (${fromDate} - ${toDate})`;
+
+    
     return (
         <section className="flex items-center p-4 md:p-12 shadow-lg font-main flex-col gap-6 rounded-lg bg-[#f8f7ee] text-black w-full max-w-2xl min-h-[400px]">
+            {
+                (formData.not_pregnant === false) ? 
+                <div className="flex flex-col w-[100%] gap-2">
+                    <h1 className="text-[18px] text-black self-start font-bold">
+                        ✨ Your Baby's Celestial Journey Awaits:
+                    </h1>
+                    <AnimatedText
+                    text={item}
+                    onComplete={() => {
+                        if (currentIndex < item.length - 1) {
+                        setCurrentIndex((prev) => prev + 1);
+                        }
+                    }}
+                    />
+                </div> : <></>
+            }
             <h1 className="text-[18px] text-black self-start font-bold">
                 Behold! Enchanting baby names we've found just for you:
             </h1>
