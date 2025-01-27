@@ -220,7 +220,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
             </h2>
 
             <label
-              htmlFor="from_due_date"
+              htmlFor="due_date"
               tabIndex={0}
               className="flex flex-col font-sub max-w-xs relative"
             >
@@ -229,8 +229,8 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
                 ref={fromPicker} // Attach the ref here
                 type="date"
                 disabled={formData.not_pregnant}
-                name="from_due_date"
-                id="from_due_date"
+                name="due_date"
+                id="due_date"
                 value={formData.due_date}
                 onChange={updateInput}
                 className="focus:outline-2 focus:outline-gray-300 outline-none h-[54px] px-4 rounded-full max-w-xs border-[1px] border-gray-400 cursor-pointer appearance-none font-sub text-[16px] xl:text-[18px]"
