@@ -48,7 +48,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
     }
 
     const toggleNotPregnant = () => {
-      setFormData({ ...formData, not_pregnant: !formData.not_pregnant, end_due_date: '', from_due_date: ''})
+      setFormData({ ...formData, not_pregnant: !formData.not_pregnant, due_date: ''})
     }
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -169,78 +169,6 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 w-[100%]">
-            <h2 className="text-lg font-main py-[0.5rem] font-bold">
-              When is your expected due date?
-            </h2>
-
-            <label
-              htmlFor="from_due_date"
-              tabIndex={0}
-              className="flex flex-col font-sub max-w-xs relative"
-            >
-              <h2 className="text-[14px] font-main py-[0.5rem] font-semibold">
-                From
-              </h2>
-                {/* Date input field */}
-              <input
-                ref={fromPicker} // Attach the ref here
-                type="date"
-                disabled={formData.not_pregnant}
-                name="from_due_date"
-                id="from_due_date"
-                value={formData.from_due_date}
-                max={formData.end_due_date}
-                onChange={updateInput}
-                className="focus:outline-2 focus:outline-gray-300 outline-none h-[54px] px-4 rounded-full max-w-xs border-[1px] border-gray-400 cursor-pointer appearance-none font-sub text-[16px] xl:text-[18px]"
-              />
-              {/* Calendar icon */}
-              <div
-                className="cursor-pointer text-black absolute bottom-5 right-5"
-                onClick={handleOpenCalendar1}
-              >
-                <FaRegCalendar size={14} />
-              </div>
-            </label>
-
-            <label
-              htmlFor="end_due_date"
-              tabIndex={0}
-              className="flex flex-col font-sub max-w-xs relative"
-            >
-              <h2 className="text-[14px] font-main py-[0.5rem] font-semibold">
-                To
-              </h2>
-                {/* Date input field */}
-              <input
-                ref={toPicker} // Attach the ref here
-                type="date"
-                disabled={formData.not_pregnant}
-                name="end_due_date"
-                id="end_due_date"
-                value={formData.end_due_date}
-                min={formData.from_due_date}
-                onChange={updateInput}
-                className="focus:outline-2 focus:outline-gray-300 outline-none h-[54px] px-4 rounded-full max-w-xs border-[1px] border-gray-400 cursor-pointer appearance-none font-sub text-[16px] xl:text-[18px]"
-              />
-              {/* Calendar icon */}
-              <div
-                className="cursor-pointer text-black absolute bottom-5 right-5"
-                onClick={handleOpenCalendar2}
-              >
-                <FaRegCalendar size={14} />
-              </div>
-            </label>
-            <label htmlFor="not_pregnant" className="flex items-center gap-2 font-sub w-fit cursor-pointer">
-              {
-                formData.not_pregnant ? <RiCheckboxFill className="w-5 h-5" onClick={toggleNotPregnant} /> : <RiCheckboxBlankLine className="w-5 h-5" onClick={toggleNotPregnant} />
-              }
-              <p className="text-[12px] font-semibold">
-                I'm not pregnant yet
-              </p>
-            </label>
-          </div>
-
           <label htmlFor="names_avoid" tabIndex={0}  className="flex flex-col font-sub w-fit">
             <h2 className="text-lg font-main py-[0.5rem] font-bold">
               Are there any names you would like to avoid due to personal reasons or associations?
@@ -284,6 +212,45 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
                 </div> : <div className="flex justify-center items-center w-[24px] h-[24px] border border-gray-500 rounded-full" />
               }
             </div>
+          </div>
+
+          <div className="flex flex-col gap-2 w-[100%]">
+            <h2 className="text-lg font-main py-[0.5rem] font-bold">
+              What is your baby's due date? (So we can take into account their astrological sign)
+            </h2>
+
+            <label
+              htmlFor="from_due_date"
+              tabIndex={0}
+              className="flex flex-col font-sub max-w-xs relative"
+            >
+                {/* Date input field */}
+              <input
+                ref={fromPicker} // Attach the ref here
+                type="date"
+                disabled={formData.not_pregnant}
+                name="from_due_date"
+                id="from_due_date"
+                value={formData.due_date}
+                onChange={updateInput}
+                className="focus:outline-2 focus:outline-gray-300 outline-none h-[54px] px-4 rounded-full max-w-xs border-[1px] border-gray-400 cursor-pointer appearance-none font-sub text-[16px] xl:text-[18px]"
+              />
+              {/* Calendar icon */}
+              <div
+                className="cursor-pointer text-black absolute bottom-5 right-5"
+                onClick={handleOpenCalendar1}
+              >
+                <FaRegCalendar size={14} />
+              </div>
+            </label>
+            <label htmlFor="not_pregnant" className="flex items-center gap-2 font-sub w-fit cursor-pointer">
+              {
+                formData.not_pregnant ? <RiCheckboxFill className="w-5 h-5" onClick={toggleNotPregnant} /> : <RiCheckboxBlankLine className="w-5 h-5" onClick={toggleNotPregnant} />
+              }
+              <p className="text-[12px] font-semibold">
+                I'm not pregnant yet
+              </p>
+            </label>
           </div>
 
           <button type="submit" className="w-fit px-[1rem] bg-[#6b6ea5] rounded-full self-center text-white font-[700] tracking-tight h-[3rem] min-h-[3rem] text-[14px]">

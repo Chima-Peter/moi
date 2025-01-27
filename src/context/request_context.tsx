@@ -5,8 +5,7 @@ export interface FormDataType {
   gender: string;
   name_origin: string;
   meaning: string;
-  from_due_date: string;
-  end_due_date: string;
+  due_date: string;
   not_pregnant: boolean;
   name_type: string;
   names_avoid: string;
@@ -34,8 +33,7 @@ const RequestProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     gender: '',
     name_origin: 'No preference',
     meaning: 'No preference',
-    from_due_date: '',
-    end_due_date: '',
+    due_date: '',
     not_pregnant: false,
     name_type: '',
     names_avoid: '',

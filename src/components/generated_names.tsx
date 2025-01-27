@@ -32,8 +32,7 @@ const GeneratedNames = ({ setStep }: GeneratedNamesProps) => {
             gender: '',
             name_origin: 'No preference',
             meaning: 'No preference',
-            from_due_date: '',
-            end_due_date: '',
+            due_date: '',
             not_pregnant: false,
             name_type: '',
             names_avoid: '',
@@ -43,15 +42,14 @@ const GeneratedNames = ({ setStep }: GeneratedNamesProps) => {
     }
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    let fromDate, toDate, item = ''
+    let dueDate, toDate, item = ''
 
     // Get the formatted dates
-    if (formData.from_due_date && formData.end_due_date) {
-        fromDate = formatDate(formData.from_due_date);
-        toDate = formatDate(formData.end_due_date);
+    if (formData.due_date) {
+        dueDate = formatDate(formData.due_date);
 
         // Create the string with the format you want
-        item = `Leo (${fromDate} - ${toDate})`;
+        item = `Leo (${dueDate})`;
     }
 
     
