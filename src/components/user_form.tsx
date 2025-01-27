@@ -247,7 +247,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               {
                 formData.not_pregnant ? <RiCheckboxFill className="w-5 h-5" onClick={toggleNotPregnant} /> : <RiCheckboxBlankLine className="w-5 h-5" onClick={toggleNotPregnant} />
               }
-              <p className="text-[12px] font-semibold">
+              <p className="text-[14px] font-medium">
                 I'm not pregnant yet
               </p>
             </label>
