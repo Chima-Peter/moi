@@ -243,9 +243,9 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
                 <FaRegCalendar size={14} />
               </div>
             </label>
-            <label htmlFor="not_pregnant" className="flex items-center gap-2 font-sub w-fit cursor-pointer">
+            <label htmlFor="not_pregnant" className="flex items-center gap-2 font-sub w-fit cursor-pointer" onClick={toggleNotPregnant}>
               {
-                formData.not_pregnant ? <RiCheckboxFill className="w-5 h-5" onClick={toggleNotPregnant} /> : <RiCheckboxBlankLine className="w-5 h-5" onClick={toggleNotPregnant} />
+                formData.not_pregnant ? <RiCheckboxFill className="w-5 h-5"  /> : <RiCheckboxBlankLine className="w-5 h-5"  />
               }
               <p className="text-[14px] font-medium">
                 I'm not pregnant yet
