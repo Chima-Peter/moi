@@ -15,11 +15,11 @@ const UserEmail = ({ step, setStep }: UserEmailProps) => {
         email_error_name: ''
     })
 
-    const [delay, setDelay] = useState(false)
+    const [delay, setDelay] = useState(true)
 
     if (step === 1) {
         setTimeout(() => {
-            setDelay(true)
+            setDelay(false)
         }, 5000)
     }
 
