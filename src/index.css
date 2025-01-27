@@ -16,3 +16,7 @@
         src: url("/futura\ medium\ bt.ttf");
     }
 }
+link[rel~="icon"] {
+    width: 48px;
+    height: 48px;
+  }

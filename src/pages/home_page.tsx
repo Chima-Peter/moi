@@ -19,13 +19,13 @@ const HomePage = () => {
 
 
   return (
-    <main className="bg-[#6b6ea5] w-[100%] flex p-4 md:p-12 items-center font-main flex-col text-white min-h-[100vh] justify-center">
-      <img src="/logo.png" className="w-32 aspect-square translate-y-4" alt="Mother of Invention" />
+    <main className="bg-[#6b6ea5] w-[100%] flex p-4 md:p-12 gap-4 items-center font-main flex-col text-white min-h-[100vh] justify-center">
+      <img src="/logo.png" className="w-24 -translate-y-2" alt="Mother of Invention" />
       {
         allComponents[step]
       }
-      <p className="capitalize font-sub font-medium pt-6 flex items-center">
-        <img src="/favicon.png" alt="MOI" className="w-12 h-12" /> <Link to={'https://motherofinvention.com/'} target="_blank"  className="underline">Mother of Invention - Innovative Baby</Link>
+      <p className="capitalize font-sub font-medium flex items-center gap-0">
+        <img src="/link_icon.png" alt="MOI" className="w-14 h-14" /> <Link to={'https://motherofinvention.com/'} target="_blank"  className="-translate-x-2 underline">Mother of Invention - Innovative Baby</Link>
       </p>
     </main>
   )

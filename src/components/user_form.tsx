@@ -6,6 +6,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
         gender: '',
         name_origin: 'No preference',
         meaning: 'No preference',
+        due_date: '',
         name_type: '',
         names_avoid: '',
         version: ''
@@ -158,6 +159,13 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
               }
             </div>
           </div>
+
+          <label htmlFor="due_date" tabIndex={0}  className="flex flex-col font-sub w-[100%] cursor-pointer">
+            <h2 className="text-lg font-main py-[0.5rem] font-bold">
+              When is your expected due date
+            </h2>
+            <input type="date" name="due_date" id="due_date" value={formData.due_date} onChange={updateInput} className="focus:outline-2 focus:outline-gray-300 outline-none py-3 px-4 rounded-full max-w-xs border-[1px] border-gray-400 appearance-none font-sub text-[16px] xl:text-[18px]"  />
+          </label>
 
           <label htmlFor="names_avoid" tabIndex={0}  className="flex flex-col font-sub w-[100%]">
             <h2 className="text-lg font-main py-[0.5rem] font-bold">
