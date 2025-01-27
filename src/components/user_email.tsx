@@ -104,7 +104,7 @@ const UserEmail = ({ step, setStep }: UserEmailProps) => {
                 </div>
             </form>
             {
-                !delay ? 
+                delay ? 
                     <button className="outline-none self-center w-[100%] text-center text-sky-500 font-medium" onClick={moveToNextStep}>
                     No thanks, show me the names! </button>
                     : 
