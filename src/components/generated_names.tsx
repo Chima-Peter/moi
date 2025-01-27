@@ -12,7 +12,7 @@ interface GeneratedNamesProps {
 }
 
 const GeneratedNames = ({ setStep }: GeneratedNamesProps) => {
-    const { formData } = useRequestContext()
+    const { formData, setFormData } = useRequestContext()
 
     const names = [
         "Avery: A unisex name of English origin meaning 'ruler of the elves,' it has a modern and trendy feel while being timeless.",
@@ -28,6 +28,17 @@ const GeneratedNames = ({ setStep }: GeneratedNamesProps) => {
       ];
       
     const backToForm = () => {
+        setFormData({
+            gender: '',
+            name_origin: 'No preference',
+            meaning: 'No preference',
+            from_due_date: '',
+            end_due_date: '',
+            not_pregnant: false,
+            name_type: '',
+            names_avoid: '',
+            version: '' 
+        })
         setStep(0)
     }
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -50,7 +61,7 @@ const GeneratedNames = ({ setStep }: GeneratedNamesProps) => {
                 (formData.not_pregnant === false) ? 
                 <div className="flex flex-col w-[100%] gap-2">
                     <h1 className="text-[18px] text-black self-start font-bold">
-                        ✨ Your Baby's Celestial Journey Awaits:
+                        🌟 Here's Your Baby's Astrological Sign:
                     </h1>
                     <AnimatedText
                     text={item}

@@ -53,7 +53,7 @@ const UserForm = ({setStep}: {setStep: React.Dispatch<React.SetStateAction<numbe
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        setStep(3)
+        setStep(1)
     }
 
 
